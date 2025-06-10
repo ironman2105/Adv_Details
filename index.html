@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nehal - FusionBioCell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: sans-serif; background: linear-gradient(to bottom right, #ebf8ff, #fff, #eef2ff); margin: 0; }
+    .card { background: rgba(255,255,255,0.9); padding: 20px; margin: 20px auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 400px; }
+    .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto; display: block; border: 4px solid #cce4ff; }
+    .name { text-align: center; font-size: 1.5rem; font-weight: bold; margin: 10px 0; }
+    .role { text-align: center; color: #2563eb; font-weight: 600; }
+    .desc { text-align: center; font-size: 0.9rem; color: #555; margin-bottom: 10px; }
+    .badge { display: inline-block; background: #dbeafe; color: #1d4ed8; font-size: 0.75rem; padding: 3px 8px; border-radius: 8px; margin: 5px auto; text-align: center; }
+    .button-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0; }
+    .btn { flex: 1 1 45%; background: #3b82f6; color: white; border: none; padding: 10px; border-radius: 10px; cursor: pointer; text-align: center; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .share-btn-top { position: absolute; right: 10px; top: 0; background: none; border: none; color: #2563eb; font-size: 1rem; cursor: pointer; }
+    .btn:hover { background: #2563eb; }
+    .btn.whatsapp { background-color:#34A853; }
+    .btn.call { background-color: #25D366; }
+    .btn.email { background-color: #EA4335; }
+    .btn.meeting { background-color: #FBBC05; }
+    .btn.location { background-color: #4285F4; }
+    .section-title { text-align: center; font-weight: bold; margin: 20px 0 10px; font-size: 1.1rem; }
+    .socials, .highlights { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .social-btn, .highlight { background: #f0f4ff; padding: 10px; border-radius: 10px; width: 45%; text-align: center; font-size: 0.8rem; }
+    .social-btn i, .highlight i { display: block; font-size: 1.2rem; margin-bottom: 5px; color: #2563eb; }
+    .footer { text-align: center; font-size: 0.75rem; color: #777; margin-top: 20px; padding-top: 10px; border-top: 1px solid #ddd; }
+    .new-services {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .service-card {
+        display: flex;
+        align-items: flex-start;
+        background: #f9fbff;
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        gap: 15px;
+        border: 1px solid #e0e7ff;
+      }
+      
+      .icon-box {
+        background: #e0e7ff;
+        padding: 10px;
+        border-radius: 12px;
+        font-size: 1rem;
+        color: #3b82f6;
+        flex-shrink: 0;
+      }
+      
+      .title {
+        font-weight: bold;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+
+      }
+      
+      .text {
+        font-size: 0.85rem;
+        color: #555;
+        margin-bottom: 10px;
+      }
+      
+      .badge {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+        border-radius: 6px;
+        font-weight: 500;
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+      
+      .badge.green {
+        background: #dcfce7;
+        color: #15803d;
+      }
+      
+      .badge.purple {
+        background: #ede9fe;
+        color: #6b21a8;
+      }
+      
+      .learn-btn {
+        background: white;
+        border: 1px solid #3b82f6;
+        color: #3b82f6;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      
+      .learn-btn:hover {
+        background: #3b82f6;
+        color: white;
+      }
+      
+      .about-section {
+        max-width: 600px;
+        background: #fff;
+        border-radius: 16px;
+
+        padding: 30px;
+        text-align: center;
+      }
+  
+      .about-section h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #333;
+      }
+  
+      .about-section p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 30px;
+      }
+  
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+  
+      .about-box {
+        background-color: #f0f4ff;
+        border-radius: 12px;
+        padding: 20px;
+        transition: all 0.3s ease;
+      }
+  
+      .about-box:hover {
+        background-color: #e0ebff;
+      }
+  
+      .about-box i {
+        font-size: 20px;
+        color: #3f51b5;
+        margin-bottom: 8px;
+      }
+  
+      .about-box h3 {
+        font-size: 16px;
+        color: #222;
+        margin-bottom: 4px;
+      }
+  
+      .about-box p {
+        font-size: 13px;
+        color: #666;
+      }
+
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" alt="Nehal" class="avatar">
+  <div class="name">Mihir B. Chauhan
+    <!--<button class="share-btn-top" onclick="shareCard()"><i class="fas fa-share-alt"></i></button>-->
+  </div>
+  <div class="role">Advocate</div>
+  <div class="desc">Criminal cases Expert & Civil cases Specialist</div>
+  <div style="text-align: center;">
+    <div class="badge">Available for Consultation</div>
+  </div>
+  
+</div>
+
+<div class="card">
+  <div class="button-grid">
+    <button class="btn call" onclick="window.location.href='tel:+91 94299 08944'"><i class="fas fa-phone"></i>Call</button>
+    <button class="btn whatsapp" onclick="window.open('https://wa.me/+919429908944')"><i class="fab fa-whatsapp"></i>WhatsApp</button>
+    <button class="btn email" onclick="window.location.href='mailto:mhr.24@gmail.com'"><i class="fas fa-envelope"></i>Email</button>
+    <button class="btn meeting" onclick="window.open('https://calendly.com/nehal-fusionbiocell')"><i class="fas fa-calendar-check"></i>Book Meeting</button>
+    <button class="btn location" onclick="window.open('https://goo.gl/maps/yourlocationhere')"><i class="fas fa-map-marker-alt"></i>Location</button>
+  </div>
+</div>
+
+<!--<div class="card">
+  <div class="section-title">Connect With Me</div>
+  <div class="socials">
+    <div class="social-btn" onclick="window.open('https://linkedin.com/in/nehal-fusionbiocell')"><i class="fab fa-linkedin"></i>LinkedIn</div>
+    <div class="social-btn" onclick="window.open('https://instagram.com/fusionbiocell')"><i class="fab fa-instagram"></i>Instagram</div>
+    <div class="social-btn" onclick="window.open('https://facebook.com/fusionbiocell')"><i class="fab fa-facebook"></i>Facebook</div>
+    <div class="social-btn" onclick="window.open('https://youtube.com/@fusionbiocell')"><i class="fab fa-youtube"></i>YouTube</div>
+  </div>
+</div> -->
+
+<!--<div class="card">
+  <div class="section-title">About Me</div>
+  <p class="desc">I'm a passionate biotechnology expert with over a decade of experience in healthcare innovation. I specialize in cellular fusion technologies, biomedical research, and strategic biotech consultation.</p>
+  
+  <div class="highlights">
+    <div class="highlight"><i class="fas fa-microscope"></i><strong> Research</strong><br>4+ Years</div>
+    <div class="highlight"><i class="fas fa-users"></i><strong> Collaboration</strong><br>Global Network</div>
+    <div class="highlight"><i class="fas fa-trophy"></i><strong> Excellence</strong><br>Industry Recognition</div>
+    <div class="highlight"><i class="fas fa-lightbulb"></i><strong> Innovation</strong><br>Cutting-edge Solutions</div>
+  </div>
+</div> -->
+
+<div class="card">
+    <div class="about-section">
+        <div class="section-title">About Me</div>
+        <p>
+            Experienced Advocate with specialization in Criminal, Civil, Family, and Property Law. Known for strategic legal solutions, client-first approach, and a strong track record in resolving complex legal matters across diverse practice areas.
+        </p>
+        
+        <div class="about-grid">
+          <div class="about-box">
+            <i class="fas fa-microscope"></i>
+            <h3>Research</h3>
+            <p>10+ Years in Biotech</p>
+          </div>
+          <div class="about-box">
+            <i class="fas fa-user-friends"></i>
+            <h3>Collaboration</h3>
+            <p>Global Network</p>
+          </div>
+          <div class="about-box">
+            <i class="fas fa-award"></i>
+            <h3>Excellence</h3>
+            <p>Industry Recognition</p>
+          </div>
+          <div class="about-box">
+            <i class="fas fa-arrow-up-right-dots"></i>
+            <h3>Innovation</h3>
+            <p>Cutting-edge Solutions</p>
+          </div>
+        </div>
+      </div>
+  </div>
+<div class="card">
+        <div class="section-title">Services</div>
+        <div class="new-services">
+          <div class="service-card">
+            <div class="icon-box"><i class="fas fa-vial"></i></div>
+            <div>
+              <div class="title">
+                Laboratory Consulting <span class="badge blue">Popular</span>
+              </div>
+              <div class="text">Expert guidance for biotech labs and research facilities</div>
+              <button class="learn-btn">Learn More</button>
+            </div>
+          </div>
+      
+          <div class="service-card">
+            <div class="icon-box"><i class="fas fa-users-cog"></i></div>
+            <div>
+              <div class="title">
+                Team Training <span class="badge green">New</span>
+              </div>
+              <div class="text">Professional development in biotechnology practices</div>
+              <button class="learn-btn">Learn More</button>
+            </div>
+          </div>
+      
+          <div class="service-card">
+            <div class="icon-box"><i class="fas fa-handshake"></i></div>
+            <div>
+              <div class="title">Research Collaboration</div>
+              <div class="text">Joint research projects and scientific partnerships</div>
+              <button class="learn-btn">Learn More</button>
+            </div>
+          </div>
+      
+          <div class="service-card">
+            <div class="icon-box"><i class="fas fa-lightbulb"></i></div>
+            <div>
+              <div class="title">
+                Innovation Strategy <span class="badge purple">Featured</span>
+              </div>
+              <div class="text">Strategic planning for biotech innovation initiatives</div>
+              <button class="learn-btn">Learn More</button>
+            </div>
+          </div>
+      </div>
+      
+
+
+<div class="footer">
+  Copyright MHR 2025
+</div>
+</body>
+</html>
