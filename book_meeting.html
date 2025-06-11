@@ -1,107 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Book a Meeting – Advocate</title>
+  <title>Book a Consultation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      padding: 20px;
+      background: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
     }
-    form {
-      max-width: 500px;
-      margin: auto;
+
+    .container {
       background: #fff;
-      padding: 25px;
+      padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input, textarea, button {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       width: 100%;
-      padding: 5px;
-      margin: 7px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      max-width: 420px;
+      position: relative;
     }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
     button {
-      background: #007BFF;
+      background-color: #007BFF;
       color: white;
+      padding: 10px;
       border: none;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 16px;
       cursor: pointer;
     }
+
     button:hover {
-      background: #0056b3;
+      background-color: #0056b3;
     }
-    #calLink {
+
+    #success-message {
       display: none;
-      margin-top: 15px;
-      text-align: center;
-    }
-    #calLink a {
       color: green;
-      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .spinner {
+      display: none;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .spinner div {
+      width: 30px;
+      height: 30px;
+      border: 4px solid #007BFF;
+      border-top: 4px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
 
-  <h2 style="text-align:center;">Book a Consultation</h2>
+<div class="container">
+  <h2>Book a Consultation</h2>
+  <form id="consultationForm">
+    <input type="text" name="Name" placeholder="Your Full Name" required>
+    <input type="email" name="Email" placeholder="Your Email Address" required>
+    <input type="tel" name="Phone" placeholder="Your Phone Number" required>
 
-  <form action="https://formsubmit.co/vmd2105@gmail.com" method="POST" id="bookingForm">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email">
-    <input type="tel" name="phone" placeholder="Phone (10 digits)" 
-         required pattern="[0-9]{10}" 
-         title="Enter a valid 10-digit phone number" maxlength="10">
-    <input type="date" name="date" id="dateInput" required>
-    <input type="time" name="time" id="timeInput" required>
-    <textarea name="message" placeholder="Reason for consultation"></textarea>   <!-- Redirect after submission -->
-    <input type="hidden" name="_next" value="thankyou.html">
+    <select name="Service" required>
+      <option value="">Select Service</option>
+      <option value="Legal Consultation">Legal Consultation</option>
+      <option value="Business Advice">Business Advice</option>
+      <option value="Real Estate Inquiry">Real Estate Inquiry</option>
+    </select>
 
-  <!-- Optional: disable CAPTCHA -->
-  <input type="hidden" name="_captcha" value="false">
+    <label>Preferred Date</label>
+    <input type="date" name="Preferred Date" required>
 
-    
+    <label>Preferred Time Slot</label>
+    <select name="Preferred Time" required>
+      <option value="">Select Time Slot</option>
+      <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+      <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+      <option value="12:00 PM - 1:00 PM">12:00 PM - 1:00 PM</option>
+      <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+      <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+      <option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
+    </select>
+
+    <textarea name="Message" rows="4" placeholder="Additional Notes (Optional)"></textarea>
+
     <button type="submit">Submit</button>
   </form>
 
-  <div id="calLink">
-    ✅ Submitted! <br>
-  </div>
-  <script>
-    const form = document.getElementById("bookingForm");
-    const calLinkDiv = document.getElementById("calLink");
-    const calLink = document.getElementById("calendarLink");
+  <div class="spinner" id="spinner"><div></div></div>
+  <div id="success-message">✅ Thank you! Your consultation request has been submitted.<br>A PDF copy has been downloaded.</div>
+</div>
 
-    form.addEventListener("submit", function(event) {
-      const date = document.getElementById("dateInput").value;
-      const time = document.getElementById("timeInput").value;
+<script>
+  document.querySelector('input[type="date"]').min = new Date().toISOString().split("T")[0];
 
-      // Delay to give FormSubmit time to send email
-      setTimeout(() => {
-        const start = new Date(`${date}T${time}`);
-        const end = new Date(start.getTime() + 30 * 60000); // 30 mins meeting
+  const form = document.getElementById('consultationForm');
+  const successMsg = document.getElementById('success-message');
+  const spinner = document.getElementById('spinner');
 
-        function formatDateForGoogle(dateObj) {
-          return dateObj.toISOString().replace(/[-:]|\.\d{3}/g, "").slice(0, 15) + "Z";
-        }
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-        const startTime = formatDateForGoogle(start);
-        const endTime = formatDateForGoogle(end);
+    spinner.style.display = "block";
 
-        const title = encodeURIComponent("Consultation with Advocate");
-        const details = encodeURIComponent("Thank you for booking. We’ll be in touch.");
-        const location = encodeURIComponent("Advocate Office / Online");
+    const formData = new FormData(form);
+    const values = Object.fromEntries(formData.entries());
 
-        const gCalURL = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startTime}/${endTime}&details=${details}&location=${location}&sf=true&output=xml`;
+    const endpoint = "https://formsubmit.co/ajax/vmd2105@gmail.com"; // CHANGE THIS!
 
-        calLink.href = gCalURL;
-        calLinkDiv.style.display = "block";
-      }, 1500);
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMsg.style.display = "block";
+        generatePDF(values);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Network error. Please try again later.");
+    } finally {
+      spinner.style.display = "none";
+    }
+  });
+
+  function generatePDF(data) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFontSize(18);
+    doc.text("Consultation Booking Confirmation", 20, 20);
+
+    doc.setFontSize(12);
+    const lines = [
+      `Name: ${data.Name}`,
+      `Email: ${data.Email}`,
+      `Phone: ${data.Phone}`,
+      `Service: ${data.Service}`,
+      `Preferred Date: ${data["Preferred Date"]}`,
+      `Preferred Time: ${data["Preferred Time"]}`,
+      `Message: ${data.Message || 'N/A'}`
+    ];
+
+    let y = 40;
+    lines.forEach(line => {
+      doc.text(line, 20, y);
+      y += 10;
     });
-  </script>
 
+    doc.save(`Consultation_${data.Name.replace(/\s+/g, '_')}.pdf`);
+  }
+</script>
 
 </body>
 </html>
