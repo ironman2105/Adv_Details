@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Book a Meeting – Advocate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 5px;
+      margin: 7px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #calLink {
+      display: none;
+      margin-top: 15px;
+      text-align: center;
+    }
+    #calLink a {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Book a Consultation</h2>
+
+  <form action="https://formsubmit.co/vmd2105@gmail.com" method="POST" id="bookingForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email">
+    <input type="tel" name="phone" placeholder="Phone (10 digits)" 
+         required pattern="[0-9]{10}" 
+         title="Enter a valid 10-digit phone number" maxlength="10">
+    <input type="date" name="date" id="dateInput" required>
+    <input type="time" name="time" id="timeInput" required>
+    <textarea name="message" placeholder="Reason for consultation"></textarea>   <!-- Redirect after submission -->
+  <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
+
+  <!-- Optional: disable CAPTCHA -->
+  <input type="hidden" name="_captcha" value="false">
+
+    
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="calLink">
+    ✅ Submitted! <br>
+  </div>
+  <script>
+    const form = document.getElementById("bookingForm");
+    const calLinkDiv = document.getElementById("calLink");
+    const calLink = document.getElementById("calendarLink");
+
+    form.addEventListener("submit", function(event) {
+      const date = document.getElementById("dateInput").value;
+      const time = document.getElementById("timeInput").value;
+
+      // Delay to give FormSubmit time to send email
+      setTimeout(() => {
+        const start = new Date(`${date}T${time}`);
+        const end = new Date(start.getTime() + 30 * 60000); // 30 mins meeting
+
+        function formatDateForGoogle(dateObj) {
+          return dateObj.toISOString().replace(/[-:]|\.\d{3}/g, "").slice(0, 15) + "Z";
+        }
+
+        const startTime = formatDateForGoogle(start);
+        const endTime = formatDateForGoogle(end);
+
+        const title = encodeURIComponent("Consultation with Advocate");
+        const details = encodeURIComponent("Thank you for booking. We’ll be in touch.");
+        const location = encodeURIComponent("Advocate Office / Online");
+
+        const gCalURL = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startTime}/${endTime}&details=${details}&location=${location}&sf=true&output=xml`;
+
+        calLink.href = gCalURL;
+        calLinkDiv.style.display = "block";
+      }, 1500);
+    });
+  </script>
+
+
+</body>
+</html>
