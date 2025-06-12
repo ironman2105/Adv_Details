@@ -217,13 +217,13 @@
     const phoneNumber = "918780178548"; // Replace with your WhatsApp number
     const message = `
 Hello, I have booked a consultation.
-👤 Name: ${data.Name}
-📞 Phone: ${data.Phone}
-📧 Email: ${data.Email || 'N/A'}
-📅 Date: ${data["Preferred Date"]}
-⏰ Time: ${data["Preferred Time"]}
-📂 Service: ${data.Service}
-📝 Message: ${data.Message || 'N/A'}
+ Name: ${data.Name}
+ Phone: ${data.Phone}
+ Email: ${data.Email || 'N/A'}
+ Date: ${data["Preferred Date"]}
+ Time: ${data["Preferred Time"]}
+ Service: ${data.Service}
+ Message: ${data.Message || 'N/A'}
     `.trim();
 
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
