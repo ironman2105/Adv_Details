@@ -218,11 +218,11 @@
     const message = `
 Hello, I have booked a consultation.
 👤 Name: ${data.Name}
+📞 Phone: ${data.Phone}
+📧 Email: ${data.Email || 'N/A'}
 📅 Date: ${data["Preferred Date"]}
 ⏰ Time: ${data["Preferred Time"]}
 📂 Service: ${data.Service}
-📞 Phone: ${data.Phone}
-📧 Email: ${data.Email || 'N/A'}
 📝 Message: ${data.Message || 'N/A'}
     `.trim();
 
