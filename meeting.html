@@ -7,13 +7,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     body {
-      margin: 0;
+      background: #f7f7f7;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #d9e4f5, #f0f4fc);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      margin: 0;
     }
 
     .container {
@@ -21,34 +21,30 @@
       padding: 35px;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      width: 90%;
-      max-width: 450px;
-      transition: 0.3s ease-in-out;
+      width: 100%;
+      max-width: 460px;
     }
 
     h2 {
       text-align: center;
-      color: #2c3e50;
+      color: #333;
       margin-bottom: 25px;
-      font-size: 26px;
-      letter-spacing: 1px;
     }
 
     input, textarea, select {
       width: 100%;
-      padding: 10px;
-      margin: 10px 0 18px;
+      padding: 12px;
+      margin: 10px 0 16px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      font-size: 16px;
-      box-sizing: border-box;
-      transition: 0.2s;
+      font-size: 15px;
+      transition: all 0.3s ease;
     }
 
     input:focus, textarea:focus, select:focus {
       border-color: #007BFF;
+      box-shadow: 0 0 5px rgba(0,123,255,0.3);
       outline: none;
-      box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
     }
 
     button {
@@ -58,7 +54,7 @@
       border: none;
       width: 100%;
       border-radius: 8px;
-      font-size: 17px;
+      font-size: 16px;
       cursor: pointer;
       transition: background 0.3s;
     }
@@ -69,21 +65,20 @@
 
     #success-message {
       display: none;
-      color: #28a745;
+      color: green;
       text-align: center;
       margin-top: 20px;
-      font-weight: 600;
     }
 
     .spinner {
       display: none;
       text-align: center;
-      margin-top: 15px;
+      margin-top: 10px;
     }
 
     .spinner div {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border: 4px solid #007BFF;
       border-top: 4px solid transparent;
       border-radius: 50%;
@@ -97,11 +92,10 @@
     }
 
     .note {
-      font-size: 13px;
       color: red;
       text-decoration: underline;
-      margin-bottom: 15px;
-      text-align: center;
+      font-size: 13px;
+      margin-top: -10px;
     }
   </style>
 </head>
@@ -122,11 +116,11 @@
       <option value="Revenue">Revenue</option>
     </select>
 
-    <label for="date">Preferred Date</label>
-    <input type="date" name="Preferred Date" id="date" required>
+    <label>Preferred Date</label>
+    <input type="date" name="Preferred Date" required>
 
-    <label for="time">Preferred Time Slot</label>
-    <select name="Preferred Time" id="time" required>
+    <label>Preferred Time Slot</label>
+    <select name="Preferred Time" required>
       <option value="">Select Time Slot</option>
       <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
       <option value="12:00 PM - 1:00 PM">12:00 PM - 1:00 PM</option>
@@ -139,9 +133,9 @@
       <option value="7:00 PM - 8:00 PM">7:00 PM - 8:00 PM</option>
     </select>
 
-    <div class="note">(For the time confirmation, we will inform you as soon as possible.)</div>
+    <div class="note">(For the time confirmation we will inform you As Soon As Possible.)</div>
 
-    <textarea name="Message" rows="4" placeholder="Please describe your case..."></textarea>
+    <textarea name="Message" rows="4" placeholder="Please Describe your case"></textarea>
 
     <button type="submit">Submit</button>
   </form>
@@ -165,12 +159,14 @@
     const formData = new FormData(form);
     const values = Object.fromEntries(formData.entries());
 
-    const endpoint = "https://formsubmit.co/ajax/vmd2105@gmail.com";
+    const endpoint = "https://formsubmit.co/ajax/vmd2105@gmail.com"; // CHANGE THIS!
 
     try {
       const response = await fetch(endpoint, {
         method: "POST",
-        headers: { 'Accept': 'application/json' },
+        headers: {
+          'Accept': 'application/json'
+        },
         body: formData
       });
 
@@ -178,6 +174,7 @@
         form.reset();
         successMsg.style.display = "block";
         generatePDF(values);
+        sendWhatsAppConfirmation(values); // ✅ WhatsApp message
       } else {
         alert("Something went wrong. Please try again.");
       }
@@ -214,21 +211,19 @@
 
     doc.save(`Consultation_${data.Name.replace(/\s+/g, '_')}.pdf`);
   }
-  
-  function sendWhatsAppConfirmation(data) {
-  const phoneNumber = "+918780178548"; // Replace with your WhatsApp business number (with country code)
-  const name = encodeURIComponent(data.Name);
-  const service = encodeURIComponent(data.Service);
-  const date = encodeURIComponent(data["Preferred Date"]);
-  const time = encodeURIComponent(data["Preferred Time"]);
-  
-  const message = `Hello, I have booked a consultation.\nName: ${name}\nService: ${service}\nPreferred Date: ${date}\nTime: ${time}`;
-  const url = `https://wa.me/${phoneNumber}?text=${message}`;
-  
-  // Open WhatsApp confirmation in new tab
-  window.open(url, "_blank");
-}
 
+  function sendWhatsAppConfirmation(data) {
+    const phoneNumber = "918780178548"; // 🔁 Replace with your WhatsApp number (without +)
+    const name = encodeURIComponent(data.Name);
+    const service = encodeURIComponent(data.Service);
+    const date = encodeURIComponent(data["Preferred Date"]);
+    const time = encodeURIComponent(data["Preferred Time"]);
+
+    const message = `Hello, I have booked a consultation.\nName: ${name}\nService: ${service}\nPreferred Date: ${date}\nTime: ${time}`;
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+
+    window.open(url, "_blank"); // Open WhatsApp in new tab
+  }
 </script>
 
 </body>
