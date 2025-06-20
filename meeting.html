@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Book a Consultation</title>
+  <title>Book a Meeting</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
@@ -102,7 +102,7 @@
 <body>
 
 <div class="container">
-  <h2>Book a Consultation</h2>
+  <h2>Book a Meeting</h2>
   <form id="consultationForm">
     <input type="text" name="Name" placeholder="Your Full Name" required>
     <input type="email" name="Email" placeholder="Your Email Address">
@@ -135,13 +135,13 @@
 
     <div class="note">(For the time confirmation we will inform you As Soon As Possible.)</div>
 
-    <textarea name="Message" rows="4" placeholder="Please Describe your case"></textarea>
+    <textarea name="Message" rows="3" placeholder="Please Describe your case"></textarea>
 
     <button type="submit">Submit</button>
   </form>
 
   <div class="spinner" id="spinner"><div></div></div>
-  <div id="success-message">✅ Thank you! Your consultation request has been submitted.<br>A PDF copy has been downloaded.</div>
+  <div id="success-message">✅ Thank you! Your meeting request has been submitted.<br>A PDF copy has been downloaded.</div>
 </div>
 
   <!-- ... existing HTML remains the same ... -->
@@ -160,7 +160,7 @@
     const formData = new FormData(form);
     const values = Object.fromEntries(formData.entries());
 
-    const endpoint = "https://formsubmit.co/ajax/vmd2105@gmail.com";
+    const endpoint = "https://formsubmit.co/ajax/mhr.24@gmail.com";
 
     try {
       const response = await fetch(endpoint, {
@@ -214,7 +214,7 @@
   }
 
   function sendWhatsAppConfirmation(data) {
-    const phoneNumber = "918780178548"; // Replace with your WhatsApp number
+    const phoneNumber = "919429908944"; // Replace with your WhatsApp number
     const message = `
 Hello, I have booked a consultation.
  Name: ${data.Name}
@@ -232,8 +232,4 @@ Hello, I have booked a consultation.
 </script>
 
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> c680f06 (commit)
