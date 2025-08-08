@@ -645,6 +645,58 @@
       margin: 20px auto;
       padding: 0 16px;
     }
+
+      /* Additional Services styles */
+    .additional-services-container {
+      max-width: 900px;
+      margin: 20px auto 40px;
+      padding: 0 16px;
+      background: #f7f8fa;
+      border-radius: 12px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    .additional-services-title {
+      text-align: center;
+      color: #000;
+      font-size: 1.125rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+    .additional-services-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 16px 0;
+      color: #4f5b62;
+      font-size: 0.875rem;
+    }
+    @media (min-width: 640px) {
+      .additional-services-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0 80px;
+      }
+    }
+    .additional-service-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .additional-service-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #4f5b62;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .additional-service-link:hover {
+      text-decoration: underline;
+    }
+    .additional-service-icon {
+      color: #22c55e; /* green-500 */
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
@@ -1061,6 +1113,42 @@
     </div>
   </div>
 
+   <!-- Additional Services Section as requested -->
+  <div class="additional-services-container">
+    <h3 class="additional-services-title">Additional Services</h3>
+    <div class="additional-services-grid">
+      <div class="additional-service-item">
+        <a href="#" class="additional-service-link">
+          <i class="fas fa-check-circle additional-service-icon"></i>
+          <span>Consumer Protection</span>
+        </a>
+        <a href="#" class="additional-service-link">
+          <i class="fas fa-check-circle additional-service-icon"></i>
+          <span>Legal Consultation</span>
+        </a>
+      </div>
+      <div class="additional-service-item">
+        <a href="#" class="additional-service-link">
+          <i class="fas fa-check-circle additional-service-icon"></i>
+          <span>Employment Law</span>
+        </a>
+        <a href="#" class="additional-service-link">
+          <i class="fas fa-check-circle additional-service-icon"></i>
+          <span>Court Representation</span>
+        </a>
+      </div>
+      <div class="additional-service-item">
+        <a href="#" class="additional-service-link">
+          <i class="fas fa-check-circle additional-service-icon"></i>
+          <span>Property Law</span>
+        </a>
+        <a href="#" class="additional-service-link">
+          <i class="fas fa-check-circle additional-service-icon"></i>
+          <span>Legal Notices</span>
+        </a>
+      </div>
+    </div>
+  </div>
   <div class="footer">@ Copyright MHR 2025 ALL RIGHTS RESERVED</div>
 </body>
 </html>
