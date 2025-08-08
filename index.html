@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -167,7 +167,7 @@
   <img src="InShot_20250611_184956182.jpg" alt="Nehal" class="avatar">
   <div class="name">Mihir B. Chauhan
     <!--<button class="share-btn-top" onclick="shareCard()"><i class="fas fa-share-alt"></i></button>-->
-  </div> 
+<!--  </div> 
   <div class="role">Advocate</div>
   <div class="desc">Criminal | Civil | Family | Revenue</div>
   <div style="text-align: center;">
@@ -242,7 +242,7 @@
         </div>
       </div>
   </div> -->
-<div class="card">
+<!--<div class="card">
         <div class="section-title">Services</div>
         <div class="new-services">
           <div class="service-card">
@@ -250,10 +250,10 @@
             <div>
               <div class="title">
                 Criminal <!--<span class="badge blue">Popular</span>-->
-              </div>
+             <!-- </div>
               <div class="text">Protecting your rights and ensuring justice in cases involving crime and prosecution.</div>
               <!--<button class="learn-btn">Learn More</button>-->
-            </div>
+          <!--  </div>
           </div>
 
           <div class="service-card">
@@ -262,7 +262,7 @@
               <div class="title">Civil</div>
               <div class="text">Resolving personal and business disputes through fair legal remedies.</div>
               <!--<button class="learn-btn">Learn More</button>--->
-            </div>
+           <!-- </div>
           </div>
       
           <div class="service-card">
@@ -270,20 +270,20 @@
             <div>
               <div class="title">
                 Family <!--<span class="badge purple">Featured</span>-->
-              </div>
+             <!-- </div>
               <div class="text">Offering compassionate solutions for divorce, custody, and other family-related matters.</div>
               <!--<button class="learn-btn">Learn More</button>-->
-            </div>
+            <!--</div>
           </div>
           <div class="service-card">
             <div class="icon-box"><i class="fa-solid fa-hand-holding-dollar"></i></div>
             <div>
               <div class="title">
                 Revenue <!--<span class="badge green">New</span>-->
-              </div>
+              <!--</div>
               <div class="text">Assisting in legal matters related to land, tax, and government revenue issues.</div>
              <!-- <button class="learn-btn">Learn More</button>-->
-            </div>
+            <!--</div>
           </div>
       
          
@@ -295,4 +295,772 @@
   @ Copyright MHR 2025 ALL RIGHTS RESERVED
 </div>
 </body>
-</html> 
+</html>  -->
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mihir Chauhan - Advocate</title>
+  <link rel="icon" type="image/png" href="mhr__ok.jpg" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to bottom right, #ebf8ff, #fff, #eef2ff);
+      margin: 0;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 900px; /* widened to match law cards */
+    }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto;
+      display: block;
+      border: 4px solid #cce4ff;
+    }
+    .name {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .role {
+      text-align: center;
+      color: #2563eb;
+      font-weight: 600;
+    }
+    .desc {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 8px;
+      margin: 5px auto;
+      text-align: center;
+    }
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .btn {
+      flex: 1 1 45%;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .share-btn-top {
+      position: absolute;
+      right: 10px;
+      top: 0;
+      background: none;
+      border: none;
+      color: #2563eb;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #2563eb;
+    }
+    .btn.whatsapp {
+      background-color: #34a853;
+    }
+    .whatspp-btn {
+      padding: 12px 10px;
+    }
+    .whatspp-btn .call-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .whatspp-btn .top-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: bold;
+    }
+    .whatspp-btn .number {
+      font-size: 0.8rem;
+      color: #e6f4ea;
+      margin-top: 2px;
+    }
+    .btn.call {
+      background-color: #25d366;
+    }
+    .call-btn {
+      padding: 12px 10px;
+    }
+    .call-btn .call-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .call-btn .top-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: bold;
+    }
+    .call-btn .number {
+      font-size: 0.8rem;
+      color: #e6f4ea;
+      margin-top: 2px;
+    }
+    .btn.email {
+      background-color: #ea4335;
+    }
+    .email-btn {
+      padding: 12px 10px;
+    }
+    .email-btn .email-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .email-btn .top-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: bold;
+    }
+    .email-btn .number {
+      font-size: 0.8rem;
+      color: #e6f4ea;
+      margin-top: 2px;
+    }
+    .btn.meeting {
+      background-color: #fbbc05;
+    }
+    .btn.location {
+      background-color: #4285f4;
+    }
+    .location-btn .location-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .location-btn .top-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: bold;
+    }
+    .location-btn .number {
+      font-size: 0.8rem;
+      color: #e6f4ea;
+      margin-top: 2px;
+    }
+     .section-title {
+      text-align: center;
+      font-weight: bold;
+      margin: 20px 0 10px;
+      font-size: 1.1rem;
+    }
+    .socials,
+    .highlights {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .social-btn,
+    .highlight {
+      background: #f0f4ff;
+      padding: 10px;
+      border-radius: 10px;
+      width: 45%;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    .social-btn i,
+    .highlight i {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: #2563eb;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #777;
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid #ddd;
+    }
+    .new-services {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .service-card {
+      display: flex;
+      align-items: flex-start;
+      background: #f9fbff;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      gap: 15px;
+      border: 1px solid #e0e7ff;
+    }
+    .icon-box {
+      background: #e0e7ff;
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 1rem;
+      color: #3b82f6;
+      flex-shrink: 0;
+    }
+    .title {
+      font-weight: bold;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .text {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .badge {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 8px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      text-align: center;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .badge-container {
+      width: 100%;
+      margin-top: 12px;
+      text-align: center;
+    }
+    .learn-btn {
+      background: white;
+      border: 1px solid #3b82f6;
+      color: #3b82f6;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .learn-btn:hover {
+      background: #3b82f6;
+      color: white;
+    }
+    .about-section {
+      max-width: 600px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+    }
+    .about-section h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .about-section p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .about-box {
+      background-color: #f0f4ff;
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    .about-box:hover {
+      background-color: #e0ebff;
+    }
+    .about-box i {
+      font-size: 20px;
+      color: #3f51b5;
+      margin-bottom: 8px;
+    }
+    .about-box h3 {
+      font-size: 16px;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .about-box p {
+      font-size: 13px;
+      color: #666;
+    }
+    .logo-right {
+      width: 70px;
+      height: 60px;
+      object-fit: cover;
+    }
+    /* Tailwind card overrides for services cards */
+    .services-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="mhr__ok.jpg" alt="Logo" class="logo-right" />
+    <img src="InShot_20250611_184956182.jpg" alt="Nehal" class="avatar" />
+    <div class="name">
+      Mihir B. Chauhan
+    </div>
+    <div class="role">Advocate</div>
+    <div class="desc">Criminal | Civil | Family | Revenue</div>
+    <div style="text-align: center;">
+      <div class="badge">Available for Consultation</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="button-grid">
+      <button class="btn call call-btn" onclick="window.location.href='tel:+919429908944'">
+        <div class="call-content">
+          <span class="top-line"><i class="fas fa-phone"></i> Call</span>
+          <span class="number">+91 94299 08944</span>
+        </div>
+      </button>
+
+      <button class="btn whatsapp whatspp-btn" onclick="window.open('https://wa.me/+919429908944')">
+        <div class="whatspp-content">
+          <span class="top-line"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+          <span class="number">+91 94299 08944</span>
+        </div>
+      </button>
+
+      <button class="btn email email-btn" onclick="window.location.href='mailto:mhr.24@gmail.com'">
+        <div class="whatspp-content">
+          <span class="top-line"><i class="fas fa-envelope"></i> Email</span>
+          <span class="number">mhr.24@gmail.com</span>
+        </div>
+      </button>
+
+      <button class="btn meeting" onclick="window.open('meeting.html')">
+        <i class="fas fa-calendar-check"></i>Book Meeting
+      </button>
+
+      <button
+        class="btn location location-btn"
+        onclick="window.open('https://www.google.com/maps/place/5QHX%2BR7H,+Prarthna+Sangh+Bhadrashram,+Athwalines,+Athwa,+Surat,+Gujarat+395007/@21.1795515,72.7158197,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x3be04de380e25581:0x70ce8480c7c06524!2m2!1d72.7982045!2d21.1795958?entry=ttu&g_ep=EgoyMDI1MDYyNi4wIKXMDSoASAFQAw%3D%3D')"
+      >
+        <div class="whatspp-content">
+          <span class="top-line"><i class="fas fa-map-marker-alt"></i> Location</span>
+          <span class="number">
+            Room no. 05, Surat district and sessions court, Athwalines, Surat - 395007.
+          </span>
+        </div>
+      </button>
+    </div>
+    <div class="badge-container">
+      <div class="badge">Please inform us in advance before visiting the office.</div>
+    </div>
+  </div>
+
+  <div class="section-title">Our Legal Services</div>
+  <div class="services-container">
+    <main class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-9">
+      <!-- Family Law Card -->
+      <section
+        class="border-2 border-pink-300 rounded-xl p-9 bg-pink-50 relative"
+        aria-label="Family Law service card"
+      >
+        <div
+          class="absolute -top- left-6 bg-pink-600 w-9 h-9 rounded-lg flex items-center justify-center shadow-md"
+          aria-hidden="true"
+        >
+          <i class="fa-solid fa-people-roof text-white text-xl"></i>
+        </div>
+        <div class="relative text-right">
+          <p class="text-pink-600 font-semibold text-lg absolute -top-5 right-0">100+</p>
+          <p class="text-right text-gray-600 text-xs mt-3">Cases Handled</p>
+        </div>
+        <div class="flex justify-end items-center space-x-1 text-yellow-400 text-sm mt-1">
+          <i class="fas fa-star"></i>
+          <span class="text-gray-700 font-normal">5.0</span>
+        </div>
+
+        <h2 class="text-pink-600 font-semibold text-xl mt-6 mb-2">Family Law</h2>
+        <p class="text-gray-700 mb-6 leading-relaxed">
+          Compassionate family law services during difficult times
+        </p>
+
+        <div class="flex items-center mb-3 text-pink-600 text-sm font-medium">
+          <i class="fas fa-check-circle mr-2"></i>
+          <span>Services Include:</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-x-8 gap-y-1 text-gray-700 text-sm mb-6">
+          <ul class="space-y-1 list-none">
+
+            <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>Divorce Proceeding
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(જાતિ પ્રમાણપત્ર)</div>
+            </li>
+           <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>Child Support
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(જાતિ પ્રમાણપત્ર)</div>
+           <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>Adoption Services
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(જાતિ પ્રમાણપત્ર)</div>
+            </li>
+          </ul>
+          <ul class="space-y-1 list-none">
+            <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>Child Custody
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(જાતિ પ્રમાણપત્ર)</div>
+            </li>
+            <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>Alimony/Spousal Support
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(જાતિ પ્રમાણપત્ર)</div>
+            </li>
+
+            <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>Prenuptial Agreements
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(જાતિ પ્રમાણપત્ર)</div>
+            </li>
+           
+          </ul>
+        </div>
+
+        <button
+          type="button"
+          class="w-full bg-pink-600 text-white rounded-md py-3 text-center font-medium text-base hover:bg-pink-700 transition"
+        >
+          Consult Now <i class="fas fa-arrow-right ml-2"></i>
+        </button>
+      </section>
+
+      <!-- Business Law Card -->
+      <section
+        class="border-2 border-green-300 rounded-xl p-6 bg-green-50 relative"
+        aria-label="Business Law service card"
+      >
+        <div
+          class="absolute -top- left-6 bg-green-600 w-9 h-9 rounded-lg flex items-center justify-center shadow-md"
+          aria-hidden="true"
+        >
+          <i class="fa-solid fa-hand-holding-dollar text-white text-xl"></i>
+        </div>
+        <div class="relative text-right">
+          <p class="text-green-600 font-semibold text-lg absolute -top-5 right-0">75+</p>
+          <p class="text-right text-gray-600 text-xs mt-3">Cases Handled</p>
+        </div>
+        <div class="flex justify-end items-center space-x-1 text-yellow-400 text-sm mt-1">
+          <i class="fas fa-star"></i>
+          <span class="text-gray-700 font-normal">4.9</span>
+        </div>
+
+        <h2 class="text-green-600 font-semibold text-xl mt-6 mb-2">Business Law</h2>
+        <p class="text-gray-700 mb-6 leading-relaxed">
+          Complete legal solutions for businesses of all sizes
+        </p>
+
+        <div class="flex items-center mb-3 text-green-600 text-sm font-medium">
+          <i class="fas fa-check-circle mr-2"></i>
+          <span>Services Include:</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-x-8 gap-y-1 text-gray-700 text-sm mb-6">
+          <ul class="space-y-1 list-none">
+            <li class="flex items-center">
+              <span class="text-green-600 mr-2 text-xs">•</span>Business Formation
+            </li>
+            <li class="flex items-center">
+              <span class="text-green-600 mr-2 text-xs">•</span>Employment Issues
+            </li>
+            <li class="flex items-center">
+              <span class="text-green-600 mr-2 text-xs">•</span>Intellectual Property
+            </li>
+          </ul>
+          <ul class="space-y-1 list-none">
+            <li class="flex items-center">
+              <span class="text-green-600 mr-2 text-xs">•</span>Contract Drafting
+            </li>
+            <li class="flex items-center">
+              <span class="text-green-600 mr-2 text-xs">•</span>Regulatory Compliance
+            </li>
+            <li class="flex items-center">
+              <span class="text-green-600 mr-2 text-xs">•</span>Commercial Transactions
+            </li>
+          </ul>
+        </div>
+
+        <button
+          type="button"
+          class="w-full bg-green-600 text-white rounded-md py-3 text-center font-medium text-base hover:bg-green-700 transition"
+        >
+          Consult Now <i class="fas fa-arrow-right ml-2"></i>
+        </button>
+      </section>
+
+      <!--Criminal Law-->
+
+       <section
+        class="border-2 border-red-300 rounded-xl p-6 bg-red-50 relative"
+        aria-label="Business Law service card"
+      >
+        <div
+          class="absolute -top- left-6 bg-red-600 w-9 h-9 rounded-lg flex items-center justify-center shadow-md"
+          aria-hidden="true"
+        >
+        
+          <i class="fa-solid fa-handcuffs text-white text-xl"></i>
+        </div>
+        <div class="relative text-right">
+          <p class="text-red-600 font-semibold text-lg absolute -top-5 right-0">150+</p>
+          <p class="text-right text-gray-600 text-xs mt-3">Cases Handled</p>
+        </div>
+        <div class="flex justify-end items-center space-x-1 text-yellow-400 text-sm mt-1">
+          <i class="fas fa-star"></i>
+          <span class="text-gray-700 font-normal">4.9</span>
+        </div>
+
+        <h2 class="text-red-600 font-semibold text-xl mt-6 mb-2">Criminal Law</h2>
+        <p class="text-gray-700 mb-6 leading-relaxed">
+          Expert criminal defense representation for all types of charges.
+                </p>
+
+        <div class="flex items-center mb-3 text-red-600 text-sm font-medium">
+          <i class="fas fa-check-circle mr-2"></i>
+          <span>Services Include:</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-x-8 gap-y-1 text-gray-700 text-sm mb-6">
+          <ul class="space-y-1 list-none">
+           <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>DUI/DWI Defense
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(हमला और मारपीट)</div>
+            </li>
+           <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>Drug Offenses
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(हमला और मारपीट)</div>
+            </li>
+            <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>White Collar Crimes
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(हमला और मारपीट)</div>
+            </li>
+          </ul>
+          <ul class="space-y-1 list-none">
+            <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>Assault &amp; Battery
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(हमला और मारपीट)</div>
+            </li>
+
+            <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>Theft Crimes
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(हमला और मारपीट)</div>
+            </li>
+           
+            <li class="flex flex-col">
+              <div class="flex items-center">
+                <span class="text-red-600 mr-2 text-xs">•</span>Traffic Violations
+              </div>
+              <div class="hindi-meaning" style="font-size:0.79rem; color:#13171e; margin-left:15px; line-height:1.6;">(हमला और मारपीट)</div>
+            </li>
+           
+          </ul>
+        </div>
+
+        <button
+          type="button"
+          class="w-full bg-red-600 text-white rounded-md py-3 text-center font-medium text-base hover:bg-green-700 transition"
+        >
+          Consult Now <i class="fas fa-arrow-right ml-2"></i>
+        </button>
+      </section>
+
+      <!--Civil Law-->
+       <section
+        class="border-2 border-blue-300 rounded-xl p-6 bg-blue-50 relative"
+        aria-label="Business Law service card"
+      >
+        <div
+          class="absolute -top- left-6 bg-blue-600 w-9 h-9 rounded-lg flex items-center justify-center shadow-md"
+          aria-hidden="true"
+        >
+          <i class="fas fa-handshake text-white text-xl"></i>
+        </div>
+        <div class="relative text-right">
+          <p class="text-blue-600 font-semibold text-lg absolute -top-5 right-0">200+</p>
+          <p class="text-right text-gray-600 text-xs mt-3">Cases Handled</p>
+        </div>
+        <div class="flex justify-end items-center space-x-1 text-yellow-400 text-sm mt-1">
+          <i class="fas fa-star"></i>
+          <span class="text-gray-700 font-normal">4.9</span>
+        </div>
+
+        <h2 class="text-blue-600 font-semibold text-xl mt-6 mb-2">Civil Litigation</h2>
+        <p class="text-gray-700 mb-6 leading-relaxed">
+          Complete legal solutions for businesses of all sizes
+        </p>
+
+        <div class="flex items-center mb-3 text-blue-600 text-sm font-medium">
+          <i class="fas fa-check-circle mr-2"></i>
+          <span>Services Include:</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-x-8 gap-y-1 text-gray-700 text-sm mb-6">
+          <ul class="space-y-1 list-none">
+            <li class="flex items-center">
+              <span class="text-blue-600 mr-2 text-xs">•</span>Personal Injury
+            </li>
+            <li class="flex items-center">
+              <span class="text-blue-600 mr-2 text-xs">•</span>Property Issues
+            </li>
+            <li class="flex items-center">
+              <span class="text-blue-600 mr-2 text-xs">•</span>Business Disputes
+            </li>
+          </ul>
+          <ul class="space-y-1 list-none">
+            <li class="flex items-center">
+              <span class="text-blue-600 mr-2 text-xs">•</span>Contract Disputes
+            </li>
+            <li class="flex items-center">
+              <span class="text-blue-600 mr-2 text-xs">•</span>Employment Law
+            </li>
+            <li class="flex items-center">
+              <span class="text-blue-600 mr-2 text-xs">•</span>Insurance Claims
+            </li>
+          </ul>
+        </div>
+
+        <button
+          type="button"
+          class="w-full bg-blue-600 text-white rounded-md py-3 text-center font-medium text-base hover:bg-green-700 transition"
+        >
+          Consult Now <i class="fas fa-arrow-right ml-2"></i>
+        </button>
+      </section>
+    </main>
+  </div>
+
+  <div class="card">
+    <div class="section-title">Services</div>
+    <div class="new-services">
+      <div class="service-card">
+        <div class="icon-box"><i class="fa-solid fa-handcuffs"></i></div>
+        <div>
+          <div class="title">Criminal</div>
+          <div class="text">
+            Protecting your rights and ensuring justice in cases involving crime and prosecution.
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box"><i class="fas fa-handshake"></i></div>
+        <div>
+          <div class="title">Civil</div>
+          <div class="text">Resolving personal and business disputes through fair legal remedies.</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box"><i class="fa-solid fa-people-roof"></i></div>
+        <div>
+          <div class="title">Family</div>
+          <div class="text">
+            Offering compassionate solutions for divorce, custody, and other family-related matters.
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <div>
+          <div class="title">Revenue</div>
+          <div class="text">Assisting in legal matters related to land, tax, and government revenue issues.</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <div>
+          <div class="title">Others</div>
+          <div class="text">
+            <div>Rent agreement - ભાડા કરાર</div>
+            <div>Cast certificate - જાતિ પ્રમાણપત્ર</div>
+            <div>Income certificate - આવક પ્રમાણપત્ર</div>
+            <div>Ration card - રેશન કાર્ડ</div>
+            <div>Passport -પાસપોર્ટ</div>
+            <div>Affidavit - સોગંદનામું</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">@ Copyright MHR 2025 ALL RIGHTS RESERVED</div>
+</body>
+</html>
